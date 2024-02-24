@@ -14,6 +14,7 @@ const Notes = () => {
 
   const ref = useRef(null);
   const refClose = useRef(null);
+  
   const [note, setNote] = useState({
     updateTitle: "",
     updateDescription: "",
@@ -125,6 +126,7 @@ const Notes = () => {
                 Close
               </button>
               <button
+                disabled={note.updateTitle.length<5 || note.updateDescription.length<5}
                 onClick={handleClick}
                 type="button"
                 className="btn btn-primary"

@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useLocation  } from 'react-router-dom'
 
-  
+
 const Navbarr = () => {
-  let location = useLocation();
+    let location = useLocation();
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">iNotebook</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

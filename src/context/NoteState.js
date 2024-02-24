@@ -33,15 +33,8 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description, tag }),
     });
-    // eslint-disable-next-line
-    const json = response.json();
-
-    const note = {
-      _id: 3,
-      title: title,
-      description: description,
-      tag: tag,
-    };
+    
+    const note = await response.json();
     setNotes(notes.concat(note));
   };
 
@@ -56,6 +49,7 @@ const NoteState = (props) => {
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVkNzM5ZDI5OWM5NmYwYTU5MTEyYTdhIn0sImlhdCI6MTcwODYxMDYzMX0.ozKtiQJzkFA2qJlsZKRRA_1Qu8YCGyrkKqR0EJSPF0M",
       },
     });
+
     // eslint-disable-next-line
     const json = response.json();
 
@@ -75,20 +69,25 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description, tag }),
     });
+
+    // eslint-disable-next-line
     const json = await response.json();
-    console.log(json)
+ 
 
     let newNotes = JSON.parse(JSON.stringify(notes))
 
+    //Logic to edit in client
     for (let index = 0; index < newNotes.length; index++) {
       const element = newNotes[index];
       if (element._id === id) {
         newNotes[index].title = title;
         newNotes[index].description = description;
         newNotes[index].tag = tag;
+        break;
       }
     }
     setNotes(newNotes);
+    
   };
 
   return (
