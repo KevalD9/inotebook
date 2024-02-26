@@ -20,11 +20,10 @@ const SignUp = () => {
       }),
     });
     const json = await response.json();
-    console.log(json);
     if (json.success) {
       // Save the auth token and redirect
-      localStorage.setItem("token", json.authtoken);
-      navigate("/");
+      localStorage.setItem("token", json.authToken);
+      navigate("/login");
       
     } else {
       alert("Invalid credentials");
@@ -84,7 +83,7 @@ const SignUp = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="cpassword" className="form-label">
-            Email address
+            Confirm Password
           </label>
           <input
             type="password"

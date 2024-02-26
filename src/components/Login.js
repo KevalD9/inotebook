@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email: "", password: ""}) 
-    const navigate = useNavigate()
+    let navigate = useNavigate()
 
     const host = "http://localhost:5000";
     const handleSubmit = async (e) => {
@@ -16,12 +16,11 @@ const Login = (props) => {
             body: JSON.stringify({email: credentials.email, password: credentials.password})
         });
         const json = await response.json()
-        console.log(json);
+
         if (json.success){
             // Save the auth token and redirect
-            localStorage.setItem('token', json.authtoken); 
+            localStorage.setItem('token', json.authToken); 
             navigate("/");
-
         }
         else{
             alert("Invalid credentials");
